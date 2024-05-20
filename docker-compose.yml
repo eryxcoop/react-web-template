@@ -1,0 +1,15 @@
+version: '3.4'
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: development
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+    command: npm start
+    volumes:
+      - ./src:/app/src
+      - ./public:/app/public
