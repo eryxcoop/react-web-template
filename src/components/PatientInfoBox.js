@@ -1,9 +1,7 @@
 import PersonIcon from "@mui/icons-material/Person";
 import TransgenderIcon from "@mui/icons-material/Transgender";
-import DateRangeIcon from "@mui/icons-material/DateRange";
 import BadgeIcon from "@mui/icons-material/Badge";
-import {ageOfPersonFromDateString} from "../utils";
-import { Grid, useTheme } from '@mui/material';
+import {Grid, useTheme} from '@mui/material';
 import Typography from "@mui/material/Typography";
 import {observer} from "mobx-react";
 
@@ -12,7 +10,6 @@ function PatientInfoBox({patient}) {
   const style = styles(theme);
 
   const fullName = `${patient?.first_name || ''} ${patient?.last_name || ''}`;
-  const ageAsString = `${ageOfPersonFromDateString(patient?.birthdate)} años`;
   const identificationNumber = `DNI ${patient.identification_number}`;
 
   const renderPatientInfoRow = (icon, label, text) => {
@@ -36,10 +33,6 @@ function PatientInfoBox({patient}) {
       <Grid item xs={6}>
         {renderPatientInfoRow(<BadgeIcon
           style={style.iconColor}/>, 'DNI', identificationNumber)}
-      </Grid>
-      <Grid item xs={6}>
-        {renderPatientInfoRow(<DateRangeIcon
-          style={style.iconColor}/>, 'Edad', ageAsString)}
       </Grid>
       <Grid item xs={6}>
         {renderPatientInfoRow(<TransgenderIcon

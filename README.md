@@ -18,6 +18,11 @@ npm install
 npm start
 ```
 
+## Server Communication
+
+This project uses Eryx´s own lib appyx-comm to handle communication with the server. You can read more about it in
+the [appyx-comm documentation](https://eryxcoop.github.io/appyx-comm/).
+
 ## State Management
 
 This project uses Mobx to handle states. You can read more about it in
@@ -31,4 +36,5 @@ Nevertheless, you can use any other component library or create your own compone
 
 ## Theming
 
-This project uses Material UI for theming. Base theme added is themes/darkTheme.js
+This project uses Material UI for theming. Base theme added is themes/darkTheme.js. React default theming could also be
+used.
