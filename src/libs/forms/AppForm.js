@@ -1,6 +1,6 @@
 import { action, computed, makeObservable, observable } from "mobx";
 
-export default class MaiaForm {
+export default class AppForm {
     constructor(fields = {}) {
         // How would this work for fields that depend on others?
         // How would this work for fields that aren't required? We could have OptionalField wrapper

@@ -1,10 +1,10 @@
 import {computed, makeObservable, observable} from "mobx";
-import TextField from "../forms/fields/TextField";
-import MaiaForm from "../forms/MaiaForm";
-import Wizard from "../wizards/Wizard";
-import {FormWizardStep} from "../wizards/FormWizardStep";
-import OptionField from "../forms/fields/OptionField";
-import FormField from "../forms/fields/FormField";
+import TextField from "../libs/forms/fields/TextField";
+import AppForm from "../libs/forms/AppForm";
+import Wizard from "../libs/wizards/Wizard";
+import {FormWizardStep} from "../libs/wizards/FormWizardStep";
+import OptionField from "../libs/forms/fields/OptionField";
+import FormField from "../libs/forms/fields/FormField";
 import ApiResponseHandler from "@eryxcoop/appyx-comm/src/errors/ApiResponseHandler";
 
 export default class NewMedicalConsultationWizardFeature {
@@ -70,7 +70,7 @@ export default class NewMedicalConsultationWizardFeature {
       "identificationNumber": new TextField(3, 15),
     }
 
-    return new MaiaForm(fields);
+    return new AppForm(fields);
   }
 
   biologicalSexOptionsSelect() {

@@ -1,10 +1,10 @@
 import {computed, makeObservable, observable} from "mobx";
-import MaiaForm from "../forms/MaiaForm";
+import AppForm from "../libs/forms/AppForm";
 import ApiResponseHandler from "@eryxcoop/appyx-comm/src/errors/ApiResponseHandler";
 import {SuccessfulApiResponse} from "@eryxcoop/appyx-comm";
-import TextField from "../forms/fields/TextField";
-import OptionField from "../forms/fields/OptionField";
-import FormField from "../forms/fields/FormField";
+import TextField from "../libs/forms/fields/TextField";
+import OptionField from "../libs/forms/fields/OptionField";
+import FormField from "../libs/forms/fields/FormField";
 
 export default class CreatePatientFeature {
     constructor(application, navigator) {
@@ -51,7 +51,7 @@ export default class CreatePatientFeature {
             "identificationNumber": new TextField(3, 15),
         }
 
-        return new MaiaForm(fields);
+        return new AppForm(fields);
     }
 
     get isFormValid() {

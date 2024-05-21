@@ -1,12 +1,12 @@
 import {useTheme} from '@mui/material';
-import LineButton from './components/buttons/LineButton';
+import LineButton from '../components/buttons/LineButton';
 import Typography from '@mui/material/Typography';
 import GoogleIcon from '@mui/icons-material/Google';
-import {useApplication} from './providers/ApplicationProvider';
-import LoginFeature from './features/LoginFeature';
-import Line from './components/Line';
+import {useApplication} from '../providers/ApplicationProvider';
+import LoginFeature from '../features/LoginFeature';
+import Line from '../components/Line';
 import {observer} from "mobx-react";
-import {ToastAlert} from "./components/ToastAlert";
+import {ToastAlert} from "../components/ToastAlert";
 
 function LoginScreen() {
   const theme = useTheme();

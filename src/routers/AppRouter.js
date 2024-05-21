@@ -5,7 +5,7 @@ import DashboardScreen from '../screens/DashboardScreen';
 import HomeScreen from '../screens/HomeScreen';
 import PatientsListScreen from '../screens/GenericScreen';
 import CreatePatientScreen from '../screens/CreatePatientScreen';
-import LoginScreen from '../LoginScreen';
+import LoginScreen from '../screens/LoginScreen';
 import * as React from 'react';
 import {observer} from 'mobx-react';
 import NewMedicalConsultationWizardScreen

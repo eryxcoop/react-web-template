@@ -5,7 +5,7 @@ import useFeature from '../../hooks/useFeature';
 import NewMedicalConsultationWizardFeature from "../../features/NewMedicalConsultationWizardFeature";
 import PatientIdStep from "./PatientIdStep";
 import CreatePatientStep from "./CreatePatientStep";
-import WizardComponent from "../../wizards/WizardComponent";
+import WizardComponent from "../../libs/wizards/WizardComponent";
 import {useNavigate} from "react-router-dom";
 
 function NewMedicalConsultationWizardScreen() {
