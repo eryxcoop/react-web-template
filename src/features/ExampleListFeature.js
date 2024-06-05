@@ -29,7 +29,7 @@ export default class ExampleListFeature {
       this._updateElements(elements);
     });
 
-    this._application.apiClient().getDoctorsPatients(responseHandler);
+    this._application.apiClient().getElements(responseHandler);
   }
 
   goToWizardView = () => {

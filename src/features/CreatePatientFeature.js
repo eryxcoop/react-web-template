@@ -24,7 +24,7 @@ export default class CreatePatientFeature {
             this._navigator('/patients');
         });
         const patient = this.form.values;
-        this._application.apiClient().createPatient(patient, responseHandler);
+        //this._application.apiClient().createElement(patient, responseHandler);
     }
 
     goBack = () => {

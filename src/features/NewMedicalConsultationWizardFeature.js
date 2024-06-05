@@ -38,23 +38,18 @@ export default class NewMedicalConsultationWizardFeature {
     this._application.apiClient().startFirstMedicalConsultation(patient, responseHandler);
   }
 
-  _createMedicalConsultationFor = (patient) => {
-    const responseHandler = this._handlerForMedicalConsultationCreation();
-    this._application.apiClient().startMedicalConsultation(patient, responseHandler);
-  }
-
   retrievePatientIfExists = () => {
-/*    const responseHandler = new ApiResponseHandler({
-      handlesError: (error) => {
-        this._wizard.moveToNextStep();
-      },
-      handlesSuccess: (response) => {
-        const patient = response.patient();
-        this._createMedicalConsultationFor(patient);
-      }
-    });
-    const identificationNumber = this.form.getFieldValue('identificationNumber');
-    this._application.apiClient().retrievePatientIfExists(identificationNumber, responseHandler);*/
+    /*    const responseHandler = new ApiResponseHandler({
+          handlesError: (error) => {
+            this._wizard.moveToNextStep();
+          },
+          handlesSuccess: (response) => {
+            const patient = response.patient();
+            this._createMedicalConsultationFor(patient);
+          }
+        });
+        const identificationNumber = this.form.getFieldValue('identificationNumber');
+        this._application.apiClient().retrievePatientIfExists(identificationNumber, responseHandler);*/
     this._wizard.moveToNextStep();
   }
 

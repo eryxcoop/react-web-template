@@ -13,35 +13,18 @@ export default class MyAppApiClient {
     return this._apiClient.callEndpoint(endpoint, {googleToken}, responseHandler);
   }
 
-  getDoctorsPatients(responseHandler) {
-    const endpoint = this._endpointFactory.getDoctorsPatientsEndpoint();
+  getElements(responseHandler) {
+    const endpoint = this._endpointFactory.getElementsEndpoint();
     return this._apiClient.callEndpoint(endpoint, {}, responseHandler);
   }
 
-  createPatient = (patient, responseHandler) => {
-    const endpoint = this._endpointFactory.createPatientEndpoint();
+  createElement = (patient, responseHandler) => {
+    const endpoint = this._endpointFactory.createElementEndpoint();
     return this._apiClient.callEndpoint(endpoint, patient, responseHandler);
   }
 
   startFirstMedicalConsultation(patient, responseHandler) {
     const endpoint = this._endpointFactory.createFirstMedicalConsultationEndpoint();
     return this._apiClient.callEndpoint(endpoint, patient, responseHandler);
-  }
-
-  startMedicalConsultation(patient, responseHandler) {
-    const endpoint = this._endpointFactory.createMedicalConsultationEndpoint();
-    return this._apiClient.callEndpoint(endpoint, patient, responseHandler);
-  }
-
-  getPatientAudioNotes(identificationNumber, responseHandler) {
-    const values = {identification_number: identificationNumber}
-    const endpoint = this._endpointFactory.getPatientAudioNotesEndpoint();
-    return this._apiClient.callEndpoint(endpoint, values, responseHandler);
-  }
-
-  getPatientMedicalRecord(identificationNumber, responseHandler) {
-    const values = {identification_number: identificationNumber}
-    const endpoint = this._endpointFactory.getPatientMedicalRecordEndpoint();
-    return this._apiClient.callEndpoint(endpoint, values, responseHandler);
   }
 }
