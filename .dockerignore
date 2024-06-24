@@ -1,0 +1,34 @@
+# git files
+.git
+.gitignore
+
+# IDE files
+.vscode
+.idea
+
+# docs
+README.md
+
+# dependencies
+node_modules
+
+# build files
+dist
+build
+
+# testing
+coverage
+
+# logs
+*.log
+
+# env files
+.env
+.env.example
+
+# docker itself
+docker-compose.yml
+Dockerfile
+
+# misc
+.DS_Store
