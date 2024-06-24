@@ -5,22 +5,40 @@ Compose.
 
 ## How to run
 
-With docker compose
+You'll need a local .env file. You can take the .env.example file as a reference.
 
 ```bash
-docker-compose up --build
+cp .env.example .env
 ```
 
-Without docker compose
+Then, in order to work with docker, run:
+
+```bash
+docker compose up --build
+```
+
+To work without docker:
 
 ```bash
 npm install
 npm start
 ```
 
+In either case you should be able to access the server at http://localhost:3000
+
+## Deploy to Cloud Run
+
+The easiest and cheapest way to get this project running is to deploy it to Google Cloud Run. You can do this by running
+
+```bash
+gcloud run deploy --source .
+```
+
+and following the instructions.
+
 ## Server Communication
 
-This project uses Eryx´s own lib appyx-comm to handle communication with the server. You can read more about it in
+This project uses Eryx´s own lib appyx-comm to handle communication with a backend server. You can read more about it in
 the [appyx-comm documentation](https://eryxcoop.github.io/appyx-comm/).
 
 ## State Management
@@ -38,3 +56,4 @@ Nevertheless, you can use any other component library or create your own compone
 
 This project uses Material UI for theming. Base theme added is themes/darkTheme.js. React default theming could also be
 used.
+
