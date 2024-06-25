@@ -31,10 +31,22 @@ In either case you should be able to access the server at http://localhost:3000
 The easiest and cheapest way to get this project running is to deploy it to Google Cloud Run. You can do this by running
 
 ```bash
+# Set the project id
+gcloud config set project $MY_PROJECT_ID
+
+# Check the project id is set correctly
+gcloud config get-value project
+
+# Deploy
 gcloud run deploy --source .
 ```
 
 and following the instructions.
+
+If you want to upload an updated version of the project, you need to run the same command. Be careful to use
+the name of for your existing service.
+
+```bash
 
 ## Server Communication
 
