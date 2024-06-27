@@ -9,7 +9,7 @@ import {observer} from "mobx-react";
 
 function CreatePatientStep({form, onBack, onContinue, biologicalSexOptionsSelect}) {
   const theme = useTheme();
-  const style = styles(theme);
+  const style = styles();
 
   const newPatientForm = () => {
     return (
@@ -56,7 +56,7 @@ function CreatePatientStep({form, onBack, onContinue, biologicalSexOptionsSelect
 
 export default observer(CreatePatientStep);
 
-const styles = (theme) => ({
+const styles = () => ({
   mainContainer: {
     display: 'flex',
     flexDirection: 'column',

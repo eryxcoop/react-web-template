@@ -16,7 +16,7 @@ function CreatePatientScreen() {
     const application = useApplication();
     const navigator = useNavigate();
     const feature = useFeature(() => new CreatePatientFeature(application, navigator));
-    const style = styles(theme);
+    const style = styles();
 
     const newPatientForm = () => {
         return (
@@ -63,7 +63,7 @@ function CreatePatientScreen() {
 
 export default observer(CreatePatientScreen);
 
-const styles = (theme) => ({
+const styles = () => ({
     mainContainer: {
         display: 'flex',
         flexDirection: 'column',

@@ -52,7 +52,7 @@ export default class Application {
     this._firebaseAuthentication.signOut();
   }
 
-  async logIn(onError) {
+  async logIn() {
     this._session.loginUser({token: 'asdf', fullName: 'Usuario ejemplo'});
     this._sessionStore.store(this._session);
     // signInWithPopup(this._firebaseAuthentication, new GoogleAuthProvider()).then(async (result) => {

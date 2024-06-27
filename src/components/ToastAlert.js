@@ -1,6 +1,6 @@
 import {useTheme} from "@mui/material";
 
-export function ToastAlert({severity, message}) {
+export function ToastAlert({message}) {
   const theme = useTheme();
   const style = styles(theme);
   // use toastify ?

@@ -1,4 +1,3 @@
-import {useTheme} from '@mui/material';
 import {useApplication} from '../../providers/ApplicationProvider';
 import {observer} from 'mobx-react';
 import useFeature from '../../hooks/useFeature';
@@ -9,11 +8,10 @@ import WizardComponent from "../../components/WizardComponent";
 import {useNavigate} from "react-router-dom";
 
 function NewMedicalConsultationWizardScreen() {
-  const theme = useTheme();
   const application = useApplication();
   const navigator = useNavigate();
   const feature = useFeature(() => new NewMedicalConsultationWizardFeature(application, navigator));
-  const style = styles(theme);
+  const style = styles();
 
   return feature && (
     <section style={style.mainContainer}>
@@ -25,7 +23,7 @@ function NewMedicalConsultationWizardScreen() {
 
 export default observer(NewMedicalConsultationWizardScreen);
 
-const styles = (theme) => ({
+const styles = () => ({
   mainContainer: {
     display: 'flex',
     flexDirection: 'column',

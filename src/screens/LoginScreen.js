@@ -20,7 +20,7 @@ function LoginScreen() {
         <Typography variant="h4" color={theme.text.primary}>
           Ejemplo
         </Typography>
-        {feature.errorInLogIn && <ToastAlert severity="error" message="Error al iniciar sesión"/>}
+        {feature.errorInLogIn && <ToastAlert message="Error al iniciar sesión"/>}
         <Line/>
         <Typography variant="h6" color={theme.text.primary}>
           Ingresá

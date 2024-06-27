@@ -23,8 +23,8 @@ export default class CreatePatientFeature {
         const responseHandler = ApiResponseHandler.for(SuccessfulApiResponse, () => {
             this._navigator('/patients');
         });
-        const patient = this.form.values;
-        //this._application.apiClient().createElement(patient, responseHandler);
+        const element = this.form.values;
+        this._application.apiClient().createElement(element, responseHandler);
     }
 
     goBack = () => {

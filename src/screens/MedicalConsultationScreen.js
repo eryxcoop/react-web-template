@@ -17,7 +17,7 @@ function MedicalConsultationScreen() {
 
   const feature = useFeature(() => new MedicalConsultationFeature({id, medicalConsultation}), [id, location]);
 
-  const style = styles(theme);
+  const style = styles();
 
   return feature && (
     <div style={style.mainContainer}>
@@ -34,7 +34,7 @@ function MedicalConsultationScreen() {
 
 export default observer(MedicalConsultationScreen);
 
-const styles = (theme) => ({
+const styles = () => ({
   mainContainer: {
     display: 'flex',
     flexDirection: 'column',
