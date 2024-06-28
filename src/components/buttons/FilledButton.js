@@ -1,12 +1,18 @@
-import {useTheme} from "@mui/material";
+import { useTheme } from '@mui/material';
 
-export default function FilledButton({children, onClick, fullWidth = false, style = {}, disabled = false}) {
+export default function FilledButton({
+  children,
+  onClick,
+  fullWidth = false,
+  style = {},
+  disabled = false,
+}) {
   const theme = useTheme();
 
   const ownStyle = styles(theme, fullWidth, disabled);
 
   return (
-    <button style={{...ownStyle.button, ...style}} onClick={onClick} disabled={disabled}>
+    <button style={{ ...ownStyle.button, ...style }} onClick={onClick} disabled={disabled}>
       {children}
     </button>
   );

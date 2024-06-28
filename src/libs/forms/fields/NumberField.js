@@ -1,5 +1,5 @@
-import FormField from "./FormField";
-import MinValueValidator from "./validators/MinValueValidator";
+import FormField from './FormField';
+import MinValueValidator from './validators/MinValueValidator';
 
 export default class NumberField extends FormField {
   constructor(min) {

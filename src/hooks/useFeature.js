@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react';
+import { useEffect, useState } from 'react';
 
 const useFeature = (createFeature, dependencies = []) => {
   const [feature, setFeature] = useState(null);
@@ -16,6 +16,6 @@ const useFeature = (createFeature, dependencies = []) => {
   }, dependencies);
 
   return feature;
-}
+};
 
 export default useFeature;

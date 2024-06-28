@@ -1,15 +1,17 @@
-import {useTheme} from "@mui/material";
-import Typography from "@mui/material/Typography";
+import { useTheme } from '@mui/material';
+import Typography from '@mui/material/Typography';
 
-export default function FormFieldBase({label = undefined, children}) {
+export default function FormFieldBase({ label = undefined, children }) {
   const theme = useTheme();
   const style = styles(theme);
 
   return (
     <div style={style.fieldContainer}>
-      {label && <Typography variant="body1" style={style.labelStyle}>
-        {label}
-      </Typography>}
+      {label && (
+        <Typography variant="body1" style={style.labelStyle}>
+          {label}
+        </Typography>
+      )}
       {children}
     </div>
   );

@@ -6,31 +6,40 @@ import { ArrowBackIosNew } from '@mui/icons-material';
 import Typography from '@mui/material/Typography';
 import * as React from 'react';
 
-export function ScreenTitleBar ({ title, children, showBackButton = true }) {
+export function ScreenTitleBar({ title, children, showBackButton = true }) {
   const navigate = useNavigate();
   const theme = useTheme();
   const style = styles(theme);
 
-  return <Box sx={style.titleBarContainer}>
-    <Box sx={style.title}>
-      { showBackButton && <MaiaIconButton onClick={() => navigate(-1)} icon={ArrowBackIosNew} title={'Atrás'} iconColor="white"/>}
-      <Typography color={theme.text.primary} variant="h5" fontWeight={'800'}>
-        {title}
-      </Typography>
+  return (
+    <Box sx={style.titleBarContainer}>
+      <Box sx={style.title}>
+        {showBackButton && (
+          <MaiaIconButton
+            onClick={() => navigate(-1)}
+            icon={ArrowBackIosNew}
+            title={'Atrás'}
+            iconColor="white"
+          />
+        )}
+        <Typography color={theme.text.primary} variant="h5" fontWeight={'800'}>
+          {title}
+        </Typography>
+      </Box>
+      {children}
     </Box>
-    {children}
-  </Box>;
+  );
 }
 
 const styles = (theme) => ({
   titleBarContainer: {
     display: 'flex',
     justifyContent: 'space-between',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   title: {
     display: 'flex',
     flexDirection: 'row',
-    gap: theme.spacing(2)
-  }
+    gap: theme.spacing(2),
+  },
 });

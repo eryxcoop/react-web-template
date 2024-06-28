@@ -28,5 +28,4 @@ export default class Patient {
   path() {
     return `/patients/${this._identification_number}`;
   }
-
 }

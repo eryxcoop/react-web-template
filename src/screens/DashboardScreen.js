@@ -23,11 +23,11 @@ const getAppBarWidth = (theme) => {
       width: `calc(100% - 240px)`,
     },
   };
-}
+};
 
 const AppBar = styled(MuiAppBar, {
   shouldForwardProp: (prop) => prop !== 'open',
-})(({theme, open}) => ({
+})(({ theme, open }) => ({
   zIndex: theme.zIndex.drawer + 1,
   transition: theme.transitions.create(['width', 'margin'], {
     easing: theme.transitions.easing.sharp,
@@ -38,24 +38,29 @@ const AppBar = styled(MuiAppBar, {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.enteringScreen,
     }),
-    ...getAppBarWidth(theme)
+    ...getAppBarWidth(theme),
   }),
 }));
-
 
 function DashboardScreen() {
   const theme = useTheme();
   const application = useApplication();
   const navigate = useNavigate();
   const location = useLocation();
-  const feature = useFeature(() => new DashboardFeature(application, navigate, location), [location]);
+  const feature = useFeature(
+    () => new DashboardFeature(application, navigate, location),
+    [location],
+  );
 
   const isOnMobileMode = useIsOnMobile();
 
   const renderAppBar = () => {
     return (
-      <AppBar position="fixed" open={feature.open}
-              sx={{backgroundColor: theme.colors.background, boxShadow: 'none'}}>
+      <AppBar
+        position="fixed"
+        open={feature.open}
+        sx={{ backgroundColor: theme.colors.background, boxShadow: 'none' }}
+      >
         <Toolbar>
           <IconButton
             color="inherit"
@@ -64,45 +69,54 @@ function DashboardScreen() {
             edge="start"
             sx={{
               marginRight: 5,
-              ...(feature.open && {display: 'none'}),
+              ...(feature.open && { display: 'none' }),
             }}
           >
-            <MenuIcon/>
+            <MenuIcon />
           </IconButton>
         </Toolbar>
       </AppBar>
-    )
-  }
+    );
+  };
 
   const renderDrawer = () => {
-
     return (
-      <Box sx={{
-        display: 'flex',
-        backgroundColor: theme.colors.lightBackground,
-        overflow: 'hidden',
-      }}>
-        <CssBaseline/>
+      <Box
+        sx={{
+          display: 'flex',
+          backgroundColor: theme.colors.lightBackground,
+          overflow: 'hidden',
+        }}
+      >
+        <CssBaseline />
         {!isOnMobileMode && renderAppBar()}
-        <MaiaDrawer open={feature.open}
-                    handleDrawerClose={feature.handleDrawerClose}
-                    handleDrawerOpen={feature.handleDrawerOpen}
-                    logOut={feature.logOut}
-                    isOnMobileMode={isOnMobileMode}
-                    optionSelected={feature.optionSelected}
-                    setOptionSelected={(option) => feature.setOptionSelected(option)}/>
-        <Box component="main"
-             sx={{flexGrow: 1, backgroundColor: theme.colors.background, minHeight: '100vh', paddingTop: '4rem'}}>
-          <Box id="detail" sx={{paddingLeft: 3, paddingRight: 3, paddingTop: 2}}>
-            <Outlet/>
+        <MaiaDrawer
+          open={feature.open}
+          handleDrawerClose={feature.handleDrawerClose}
+          handleDrawerOpen={feature.handleDrawerOpen}
+          logOut={feature.logOut}
+          isOnMobileMode={isOnMobileMode}
+          optionSelected={feature.optionSelected}
+          setOptionSelected={(option) => feature.setOptionSelected(option)}
+        />
+        <Box
+          component="main"
+          sx={{
+            flexGrow: 1,
+            backgroundColor: theme.colors.background,
+            minHeight: '100vh',
+            paddingTop: '4rem',
+          }}
+        >
+          <Box id="detail" sx={{ paddingLeft: 3, paddingRight: 3, paddingTop: 2 }}>
+            <Outlet />
           </Box>
         </Box>
       </Box>
-    )
-  }
+    );
+  };
 
   return feature && renderDrawer();
 }
-
 
 export default observer(DashboardScreen);

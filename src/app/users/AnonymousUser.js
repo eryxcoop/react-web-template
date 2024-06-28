@@ -1,10 +1,9 @@
 export class AnonymousUser {
+  fullName() {
+    return '';
+  }
 
-    fullName(){
-        return "";
-    }
-
-    isAnonymous(){
-        return true;
-    }
+  isAnonymous() {
+    return true;
+  }
 }

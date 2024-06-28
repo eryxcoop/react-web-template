@@ -10,7 +10,9 @@ export default class LengthValidator {
 
   errorMessage() {
     const requiredLength =
-      this._minLength === this._maxLength ? this._minLength : "entre " + this._minLength + " y " + this._maxLength;
-    return "Debe ser de " + requiredLength + " dígitos";
+      this._minLength === this._maxLength
+        ? this._minLength
+        : 'entre ' + this._minLength + ' y ' + this._maxLength;
+    return 'Debe ser de ' + requiredLength + ' dígitos';
   }
 }

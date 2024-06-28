@@ -4,6 +4,6 @@ export default class DigitValidator {
   }
 
   errorMessage() {
-    return "Debe contener solo números";
+    return 'Debe contener solo números';
   }
 }

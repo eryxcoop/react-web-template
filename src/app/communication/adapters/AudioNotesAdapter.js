@@ -4,7 +4,7 @@ export default class AudioNotesAdapter {
   }
 
   adapt() {
-    return this._audioNotes.map(note => {
+    return this._audioNotes.map((note) => {
       const transcription = note.transcription;
       return {
         id: note.id,
@@ -14,7 +14,7 @@ export default class AudioNotesAdapter {
         hasFinished: transcription.finished,
         hasStarted: transcription.started,
         transcription: transcription.text,
-      }
+      };
     });
   }
 }

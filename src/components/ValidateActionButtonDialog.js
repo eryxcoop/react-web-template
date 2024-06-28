@@ -1,25 +1,31 @@
-import {Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle} from "@mui/material";
-import {useState} from "react";
-import LineButton from "./buttons/LineButton";
-import FilledButton from "./buttons/FilledButton";
+import {
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
+} from '@mui/material';
+import { useState } from 'react';
+import LineButton from './buttons/LineButton';
+import FilledButton from './buttons/FilledButton';
 
 export default function ValidateActionButtonDialog({
-                                                     label,
-                                                     onConfirm,
-                                                     acceptLabel,
-                                                     title,
-                                                     subText
-                                                   }) {
+  label,
+  onConfirm,
+  acceptLabel,
+  title,
+  subText,
+}) {
   const [open, setOpen] = useState(false);
 
   const handleClose = () => {
     setOpen(false);
-  }
+  };
 
   const handleAccept = () => {
     onConfirm();
     setOpen(false);
-  }
+  };
 
   return (
     <>
@@ -32,13 +38,9 @@ export default function ValidateActionButtonDialog({
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
-        <DialogTitle id="alert-dialog-title">
-          {title}
-        </DialogTitle>
+        <DialogTitle id="alert-dialog-title">{title}</DialogTitle>
         <DialogContent>
-          <DialogContentText id="alert-dialog-description">
-            {subText}
-          </DialogContentText>
+          <DialogContentText id="alert-dialog-description">{subText}</DialogContentText>
         </DialogContent>
         <DialogActions>
           <LineButton onClick={handleClose} lightMode={true}>
@@ -50,5 +52,5 @@ export default function ValidateActionButtonDialog({
         </DialogActions>
       </Dialog>
     </>
-  )
+  );
 }

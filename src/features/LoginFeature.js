@@ -1,4 +1,4 @@
-import {action, computed, makeObservable, observable} from "mobx";
+import { action, computed, makeObservable, observable } from 'mobx';
 
 export default class LoginFeature {
   constructor(application) {
@@ -19,7 +19,7 @@ export default class LoginFeature {
   login = () => {
     const onError = () => {
       this._errorInLogIn = true;
-    }
+    };
     this._application.logIn(onError);
-  }
+  };
 }

@@ -1,4 +1,4 @@
-import {action, computed, makeObservable, observable} from "mobx";
+import { action, computed, makeObservable, observable } from 'mobx';
 
 export default class DashboardFeature {
   constructor(application, navigator, location) {
@@ -55,6 +55,5 @@ export default class DashboardFeature {
   logOut = async () => {
     this._application.logOut();
     this._navigator('/');
-  }
-
+  };
 }

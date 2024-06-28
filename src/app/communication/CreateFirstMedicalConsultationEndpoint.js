@@ -1,13 +1,13 @@
-import {Endpoint} from '@eryxcoop/appyx-comm';
-import MedicalConsultationResponse from "./responses/MedicalConsultationResponse";
+import { Endpoint } from '@eryxcoop/appyx-comm';
+import MedicalConsultationResponse from './responses/MedicalConsultationResponse';
 
 export default class CreateFirstMedicalConsultationEndpoint extends Endpoint {
   constructor() {
-    super({url: "medical_consultation/for_new_patient", method: Endpoint.postMethod()});
+    super({ url: 'medical_consultation/for_new_patient', method: Endpoint.postMethod() });
   }
 
   ownResponses() {
-    return [MedicalConsultationResponse]
+    return [MedicalConsultationResponse];
   }
 
   adaptValues(values) {
@@ -16,8 +16,8 @@ export default class CreateFirstMedicalConsultationEndpoint extends Endpoint {
       last_name: values.lastName,
       identification_number: values.identificationNumber,
       birthdate: this._presentDate(values.birthdate),
-      biological_sex: values.biologicalSex
-    }
+      biological_sex: values.biologicalSex,
+    };
   }
 
   _presentDate(aDate) {

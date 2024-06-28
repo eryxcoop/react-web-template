@@ -1,15 +1,15 @@
 export class MedicalConsultationFeature {
-  constructor ({ medicalConsultation }) {
+  constructor({ medicalConsultation }) {
     this._medicalConsultation = medicalConsultation;
   }
 
-  load () {
+  load() {
     if (!this._medicalConsultation) {
       console.log('MedicalConsultationFeature: get medical consultation with ID');
     }
   }
 
-  get medicalConsultation () {
+  get medicalConsultation() {
     return this._medicalConsultation;
   }
 }
