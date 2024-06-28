@@ -1,14 +1,10 @@
-import {useTheme} from "@mui/material";
+import { useTheme } from '@mui/material';
 
-export function ToastAlert({message}) {
+export function ToastAlert({ message }) {
   const theme = useTheme();
   const style = styles(theme);
   // use toastify ?
-  return (
-    <div style={style.alertContainer}>
-      {message}
-    </div>
-  );
+  return <div style={style.alertContainer}>{message}</div>;
 }
 
 const styles = (theme) => ({

@@ -11,5 +11,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Install packages
         run: npm install
+      - name: Prettier
+        run: npm run format
       - name: Lint
         run: npm run lint

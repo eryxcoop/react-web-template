@@ -1,11 +1,11 @@
-import {computed, makeObservable, observable} from "mobx";
-import TextField from "../libs/forms/fields/TextField";
-import AppForm from "../libs/forms/AppForm";
-import Wizard from "../libs/wizards/Wizard";
-import {FormWizardStep} from "../libs/wizards/FormWizardStep";
-import OptionField from "../libs/forms/fields/OptionField";
-import FormField from "../libs/forms/fields/FormField";
-import ApiResponseHandler from "@eryxcoop/appyx-comm/src/errors/ApiResponseHandler";
+import { computed, makeObservable, observable } from 'mobx';
+import TextField from '../libs/forms/fields/TextField';
+import AppForm from '../libs/forms/AppForm';
+import Wizard from '../libs/wizards/Wizard';
+import { FormWizardStep } from '../libs/wizards/FormWizardStep';
+import OptionField from '../libs/forms/fields/OptionField';
+import FormField from '../libs/forms/fields/FormField';
+import ApiResponseHandler from '@eryxcoop/appyx-comm/src/errors/ApiResponseHandler';
 
 export default class NewMedicalConsultationWizardFeature {
   constructor(application, navigator) {
@@ -20,23 +20,25 @@ export default class NewMedicalConsultationWizardFeature {
       form: computed,
       wizard: computed,
       isFormValid: computed,
-    })
+    });
   }
 
   _handlerForMedicalConsultationCreation = () => {
     return new ApiResponseHandler({
       handlesSuccess: (response) => {
         const medicalConsultation = response.medicalConsultation();
-        this._navigator(`/medical_consultations/${medicalConsultation.id}`, {state: {medicalConsultation}});
-      }
+        this._navigator(`/medical_consultations/${medicalConsultation.id}`, {
+          state: { medicalConsultation },
+        });
+      },
     });
-  }
+  };
 
   createFirstMedicalConsultation = () => {
     const responseHandler = this._handlerForMedicalConsultationCreation();
     const patient = this.form.values;
     this._application.apiClient().startFirstMedicalConsultation(patient, responseHandler);
-  }
+  };
 
   retrievePatientIfExists = () => {
     /*    const responseHandler = new ApiResponseHandler({
@@ -51,56 +53,50 @@ export default class NewMedicalConsultationWizardFeature {
         const identificationNumber = this.form.getFieldValue('identificationNumber');
         this._application.apiClient().retrievePatientIfExists(identificationNumber, responseHandler);*/
     this._wizard.moveToNextStep();
-  }
+  };
 
   _createForm() {
     const biologicalSexOptions = this.biologicalSexOptionsSelect().map((option) => {
       return option.value;
     });
     const fields = {
-      "firstName": new TextField(2, 20),
-      "lastName": new TextField(2, 20),
-      "biologicalSex": new OptionField(biologicalSexOptions),
-      "birthdate": new FormField(),
-      "identificationNumber": new TextField(3, 15),
-    }
+      firstName: new TextField(2, 20),
+      lastName: new TextField(2, 20),
+      biologicalSex: new OptionField(biologicalSexOptions),
+      birthdate: new FormField(),
+      identificationNumber: new TextField(3, 15),
+    };
 
     return new AppForm(fields);
   }
 
   biologicalSexOptionsSelect() {
     return [
-      {label: 'Masculino', value: 'MALE'},
-      {label: 'Femenino', value: 'FEMALE'},
-      {label: 'Intersexual', value: 'INTERSEX'}
-    ]
+      { label: 'Masculino', value: 'MALE' },
+      { label: 'Femenino', value: 'FEMALE' },
+      { label: 'Intersexual', value: 'INTERSEX' },
+    ];
   }
 
   _createWizard() {
     const wizard = new Wizard();
-    wizard.addSteps(
-      [
-        new FormWizardStep(
-          {
-            formField: this.form.getFieldByName('identificationNumber'),
-            loading: () => false,
-            onContinue: this.retrievePatientIfExists,
-            extraProps: {}
-          }
-        ),
-        new FormWizardStep(
-          {
-            formField: this.form.getFieldByName('identificationNumber'),
-            loading: () => false,
-            onContinue: this.createFirstMedicalConsultation,
-            extraProps: {
-              form: this.form,
-              biologicalSexOptionsSelect: this.biologicalSexOptionsSelect()
-            }
-          }
-        )
-      ]
-    );
+    wizard.addSteps([
+      new FormWizardStep({
+        formField: this.form.getFieldByName('identificationNumber'),
+        loading: () => false,
+        onContinue: this.retrievePatientIfExists,
+        extraProps: {},
+      }),
+      new FormWizardStep({
+        formField: this.form.getFieldByName('identificationNumber'),
+        loading: () => false,
+        onContinue: this.createFirstMedicalConsultation,
+        extraProps: {
+          form: this.form,
+          biologicalSexOptionsSelect: this.biologicalSexOptionsSelect(),
+        },
+      }),
+    ]);
     return wizard;
   }
 

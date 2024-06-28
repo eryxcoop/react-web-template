@@ -1,6 +1,6 @@
-import {useTheme} from "@mui/material";
+import { useTheme } from '@mui/material';
 
-export default function LineButton({onClick, children, fullWidth = false, lightMode = false}) {
+export default function LineButton({ onClick, children, fullWidth = false, lightMode = false }) {
   const theme = useTheme();
   const style = styles(theme, fullWidth, lightMode);
 

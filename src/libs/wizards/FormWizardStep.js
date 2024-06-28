@@ -1,5 +1,5 @@
 export class FormWizardStep {
-  constructor({formField, onBack, onContinue , loading = () => false, extraProps}) {
+  constructor({ formField, onBack, onContinue, loading = () => false, extraProps }) {
     this._wizard = null;
 
     this._onBack = onBack;

@@ -1,5 +1,5 @@
-import TextField from "./TextField";
-import EmailValidator from "./validators/EmailValidator";
+import TextField from './TextField';
+import EmailValidator from './validators/EmailValidator';
 
 export default class EmailField extends TextField {
   constructor() {

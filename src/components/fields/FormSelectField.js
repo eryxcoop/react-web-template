@@ -1,8 +1,8 @@
-import {MenuItem, Select, useTheme} from "@mui/material";
-import {observer} from "mobx-react";
-import FormFieldBase from "./FormFieldBase";
+import { MenuItem, Select, useTheme } from '@mui/material';
+import { observer } from 'mobx-react';
+import FormFieldBase from './FormFieldBase';
 
-function FormSelectField({label, field, options}) {
+function FormSelectField({ label, field, options }) {
   const theme = useTheme();
 
   return (
@@ -14,7 +14,7 @@ function FormSelectField({label, field, options}) {
           backgroundColor: theme.fields.background,
           borderRadius: '5px',
         }}
-        InputLabelProps={{shrink: false}}
+        InputLabelProps={{ shrink: false }}
         fullWidth
         placeholder="Seleccione una opción"
         value={field.value}
@@ -22,13 +22,14 @@ function FormSelectField({label, field, options}) {
       >
         {options.map((option) => {
           return (
-            <MenuItem key={option.value} value={option.value}>{option.label}</MenuItem>
+            <MenuItem key={option.value} value={option.value}>
+              {option.label}
+            </MenuItem>
           );
         })}
       </Select>
     </FormFieldBase>
   );
-
 }
 
 export default observer(FormSelectField);

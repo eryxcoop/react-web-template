@@ -2,13 +2,13 @@ import { TextField, useTheme } from '@mui/material';
 import { observer } from 'mobx-react';
 import FormFieldBase from './FormFieldBase';
 
-function FormTextField ({
+function FormTextField({
   label = undefined,
   placeholder = undefined,
   field,
   width = '100%',
   disabled = false,
-  rows = 1
+  rows = 1,
 }) {
   const theme = useTheme();
   const style = styles(theme, width);

@@ -1,5 +1,4 @@
 export default class Doctor {
-
   isPatient() {
     return false;
   }
@@ -13,7 +12,7 @@ export default class Doctor {
   }
 
   displayInAudioPlayer() {
-    return 'Mi nota'
+    return 'Mi nota';
   }
 
   seeNotePath() {
@@ -23,5 +22,4 @@ export default class Doctor {
   path() {
     return `/patients/`;
   }
-
 }

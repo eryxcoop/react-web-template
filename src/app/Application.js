@@ -1,20 +1,19 @@
 import MyAppApiClient from './communication/MyAppApiClient';
-import {FakeRequester, RemoteRequester} from '@eryxcoop/appyx-comm';
+import { FakeRequester, RemoteRequester } from '@eryxcoop/appyx-comm';
 import BearerAuthorizationManager from './BearerAuthorizationManager';
-import {SessionStore} from './SessionStore';
-import {LocalStorage} from './LocalStorage';
-import {getAuth, onAuthStateChanged, onIdTokenChanged} from '@firebase/auth';
-import {initializeApp} from 'firebase/app';
-import {action, computed, makeObservable, observable} from 'mobx';
+import { SessionStore } from './SessionStore';
+import { LocalStorage } from './LocalStorage';
+import { getAuth, onAuthStateChanged, onIdTokenChanged } from '@firebase/auth';
+import { initializeApp } from 'firebase/app';
+import { action, computed, makeObservable, observable } from 'mobx';
 
 export default class Application {
   constructor() {
-    this._sessionStore = new SessionStore(new LocalStorage())
+    this._sessionStore = new SessionStore(new LocalStorage());
     this._session = undefined;
     this._myAppApiClient = this._setUpApiClient();
-    this._firebaseAuthentication = this._initializeFirebase()
+    this._firebaseAuthentication = this._initializeFirebase();
     this._loaded = false;
-
 
     makeObservable(this, {
       _loaded: observable,
@@ -53,7 +52,7 @@ export default class Application {
   }
 
   async logIn() {
-    this._session.loginUser({token: 'asdf', fullName: 'Usuario ejemplo'});
+    this._session.loginUser({ token: 'asdf', fullName: 'Usuario ejemplo' });
     this._sessionStore.store(this._session);
     // signInWithPopup(this._firebaseAuthentication, new GoogleAuthProvider()).then(async (result) => {
     //   result.user.getIdToken().then(async (token) => {
@@ -81,7 +80,7 @@ export default class Application {
 
   _setUpRequester() {
     if (this._isUsingFakeApi()) {
-      return new FakeRequester();
+      return new FakeRequester({});
     }
     const authorizationManager = new BearerAuthorizationManager(this);
     const remoteApiUrl = process.env.REACT_APP_API_URL;

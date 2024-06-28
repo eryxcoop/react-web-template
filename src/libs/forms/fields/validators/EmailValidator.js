@@ -5,6 +5,6 @@ export default class EmailValidator {
   }
 
   errorMessage() {
-    return "Email invalido.";
+    return 'Email invalido.';
   }
 }

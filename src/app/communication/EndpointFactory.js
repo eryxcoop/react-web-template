@@ -1,13 +1,13 @@
-import {Endpoint} from "@eryxcoop/appyx-comm";
-import GetElementsResponse from "./responses/GetElementsResponse";
-import CreateFirstMedicalConsultationEndpoint from "./CreateFirstMedicalConsultationEndpoint";
-import CreatePatientEndpoint from "./CreatePatientEndpoint";
-import LogInResponse from "./responses/LogInResponse";
+import { Endpoint } from '@eryxcoop/appyx-comm';
+import GetElementsResponse from './responses/GetElementsResponse';
+import CreateFirstMedicalConsultationEndpoint from './CreateFirstMedicalConsultationEndpoint';
+import CreatePatientEndpoint from './CreatePatientEndpoint';
+import LogInResponse from './responses/LogInResponse';
 
 export default class EndpointFactory {
   getElementsEndpoint() {
     return Endpoint.newGet({
-      url: "patients",
+      url: 'patients',
       ownResponses: [GetElementsResponse],
     });
   }
@@ -22,9 +22,8 @@ export default class EndpointFactory {
 
   loginEndpoint() {
     return Endpoint.newPost({
-      url: "login",
+      url: 'login',
       ownResponses: [LogInResponse],
     });
   }
-
 }

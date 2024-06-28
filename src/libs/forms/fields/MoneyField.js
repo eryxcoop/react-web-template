@@ -1,7 +1,7 @@
-import FormField from "./FormField";
-import NumberField from "./NumberField";
-import TextField from "./TextField";
-import Money from "../../libs/moneyLib/Money";
+import FormField from './FormField';
+import NumberField from './NumberField';
+import TextField from './TextField';
+import Money from '../../libs/moneyLib/Money';
 
 export default class MoneyField extends FormField {
   constructor() {

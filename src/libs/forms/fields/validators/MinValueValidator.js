@@ -8,6 +8,6 @@ export default class MinValueValidator {
   }
 
   errorMessage() {
-    return "Debe ser de mayor a" + this._minValue;
+    return 'Debe ser de mayor a' + this._minValue;
   }
 }

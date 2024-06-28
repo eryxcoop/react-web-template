@@ -1,7 +1,7 @@
-import { computed, makeObservable, observable } from "mobx";
+import { computed, makeObservable, observable } from 'mobx';
 
-import FormField from "./FormField";
-import TextField from "./TextField";
+import FormField from './FormField';
+import TextField from './TextField';
 
 export default class ValidationCodeField extends FormField {
   constructor(length) {
@@ -28,7 +28,7 @@ export default class ValidationCodeField extends FormField {
   }
 
   get value() {
-    return this.parts.map((part) => part.value).join("");
+    return this.parts.map((part) => part.value).join('');
   }
 
   get isValid() {

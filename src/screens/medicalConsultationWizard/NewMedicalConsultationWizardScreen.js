@@ -1,11 +1,11 @@
-import {useApplication} from '../../providers/ApplicationProvider';
-import {observer} from 'mobx-react';
+import { useApplication } from '../../providers/ApplicationProvider';
+import { observer } from 'mobx-react';
 import useFeature from '../../hooks/useFeature';
-import NewMedicalConsultationWizardFeature from "../../features/NewMedicalConsultationWizardFeature";
-import PatientIdStep from "./PatientIdStep";
-import CreatePatientStep from "./CreatePatientStep";
-import WizardComponent from "../../components/WizardComponent";
-import {useNavigate} from "react-router-dom";
+import NewMedicalConsultationWizardFeature from '../../features/NewMedicalConsultationWizardFeature';
+import PatientIdStep from './PatientIdStep';
+import CreatePatientStep from './CreatePatientStep';
+import WizardComponent from '../../components/WizardComponent';
+import { useNavigate } from 'react-router-dom';
 
 function NewMedicalConsultationWizardScreen() {
   const application = useApplication();
@@ -13,12 +13,13 @@ function NewMedicalConsultationWizardScreen() {
   const feature = useFeature(() => new NewMedicalConsultationWizardFeature(application, navigator));
   const style = styles();
 
-  return feature && (
-    <section style={style.mainContainer}>
-      <WizardComponent steps={[PatientIdStep, CreatePatientStep]} wizard={feature.wizard}/>
-    </section>
+  return (
+    feature && (
+      <section style={style.mainContainer}>
+        <WizardComponent steps={[PatientIdStep, CreatePatientStep]} wizard={feature.wizard} />
+      </section>
+    )
   );
-
 }
 
 export default observer(NewMedicalConsultationWizardScreen);
@@ -28,5 +29,5 @@ const styles = () => ({
     display: 'flex',
     flexDirection: 'column',
     gap: '2rem',
-  }
+  },
 });

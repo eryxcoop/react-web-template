@@ -1,7 +1,7 @@
-import {useTheme} from "@mui/material";
-import FilledButton from "../components/buttons/FilledButton";
-import Typography from "@mui/material/Typography";
-import {useNavigate} from "react-router-dom";
+import { useTheme } from '@mui/material';
+import FilledButton from '../components/buttons/FilledButton';
+import Typography from '@mui/material/Typography';
+import { useNavigate } from 'react-router-dom';
 
 export default function NotFoundScreen() {
   const theme = useTheme();
@@ -13,9 +13,7 @@ export default function NotFoundScreen() {
       <Typography variant="body1" fontWeight={'500'}>
         Pareces haberte perdido. Nos pasa a todos en algún momento.
       </Typography>
-      <FilledButton onClick={() => navigate('/')}>
-        Volver
-      </FilledButton>
+      <FilledButton onClick={() => navigate('/')}>Volver</FilledButton>
     </section>
   );
 }
@@ -30,6 +28,6 @@ const styles = () => ({
     gap: 16,
   },
   image: {
-    width: '900px'
+    width: '900px',
   },
-})
+});
