@@ -1,0 +1,14 @@
+default:
+  image: node:18
+
+stages:
+  - linter
+
+eslint-js:
+  stage: linter
+  script:
+    - npm install
+    - npm run lint
+  artifacts:
+    paths:
+      - node_modules # Cache node_modules for future jobs

@@ -46,7 +46,26 @@ and following the instructions.
 If you want to upload an updated version of the project, you need to run the same command. Be careful to use
 the name of for your existing service.
 
+## Linter
+
+This project uses ESLint and Prettier (see https://prettier.io/docs/en/comparison) to enforce a consistent coding style.
+Rules are still vague and can be changed to
+fit the teams personal preferences.
+
 ```bash
+npm run lint
+
+npm run prettier
+npm run prettier:fix # to fix the files
+```
+
+## Pipelines
+
+### Linter
+
+You can find the linter pipeline in the .github/workflows/lint.yml file. It runs the linter on merge request (but it can
+be changed easily to run on push).
+If you are working with Gitlab, you can use the .gitlab-ci.yml file inside pipelines.
 
 ## Server Communication
 
@@ -68,4 +87,3 @@ Nevertheless, you can use any other component library or create your own compone
 
 This project uses Material UI for theming. Base theme added is themes/darkTheme.js. React default theming could also be
 used.
-
