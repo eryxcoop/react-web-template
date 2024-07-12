@@ -67,6 +67,26 @@ You can find the linter pipeline in the .github/workflows/lint.yml file. It runs
 be changed easily to run on push).
 If you are working with Gitlab, you can use the .gitlab-ci.yml file inside pipelines.
 
+### Deploy Staging
+
+If you use github, you can find the deploy pipeline in the .github/workflows/deploy_to_staging.yml file. It deploys to
+cloud run when action is manually run over branch.
+You must set in github secrets the following variables:
+
+- CLOUD_RUN_SERVICE (name of the service in cloud run)
+- GOOGLE_CLOUD_SERVICE_KEY (service key to authenticate with google cloud)
+- GOOGLE_CLOUD_PROJECT 
+- GOOGLE_CLOUD_ARTIFACT_REPOSITORY
+- GOOGLE_CLOUD_ARTIFACT_IMAGE
+
+Your service account must have the following roles:
+
+- Artifact Registry Admin
+- Cloud Run Admin
+- Cloud Run Service Agent
+- Service Account User
+- Storage Admin
+
 ## Server Communication
 
 This project uses Eryx´s own lib appyx-comm to handle communication with a backend server. You can read more about it in
